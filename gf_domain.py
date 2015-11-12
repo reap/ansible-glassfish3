@@ -8,7 +8,7 @@ def main():
             name=dict(required=True),
             admin_user=dict(required=False, default='admin'),
             password_file=dict(required=False),
-            glassfish_path=dict(required=True),
+            glassfish_path=dict(required=True, default='/opt/glassfish3'),
             state=dict(choices=['absent', 'present', 'running', 'stopped'], default='present')
         ),
         supports_check_mode=True
