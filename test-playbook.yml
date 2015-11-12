@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  vars:
+    glassfish_path: /opt/glassfish3
+  tasks:
+  - name: "Create & start testdomain domain"
+    gf_domain: glassfish_path="{{ glassfish_path }}" name=testdomain state=running
+  - name: "Create cluster testcluster"
+    gf_cluster: glassfish_path="{{ glassfish_path }}" name=testcluster state=present
+  - name: "Remove cluster testcluster"
+    gf_cluster: glassfish_path="{{ glassfish_path }}" name=testcluster state=absent
+  - name: "Remove testdomain"
+    gf_domain: glassfish_path="{{ glassfish_path }}" name=testdomain state=absent
